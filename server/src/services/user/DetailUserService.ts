@@ -11,7 +11,14 @@ class DetailUserService {
       },
     });
 
-    return user;
+    const account = await prismaClient.account.findFirst({
+      where: { id: user.accountId },
+      select: {
+        balance: true,
+      },
+    });
+
+    return { ...user, ...account };
   }
 }
 
