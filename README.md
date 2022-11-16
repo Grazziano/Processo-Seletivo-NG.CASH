@@ -8,18 +8,86 @@ Esta aplicação web fullstack, possibilita que usuários consigam realizar tran
 
 Lista de tecnologias que foram usadas nesse projeto:
 
+<br>
+
 ### Frontend
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 ### Backend
 
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+## 🪛 Funcionalidades
+
+<details>
+
+<summary>Frontend</summary>
+
+- Página para realizar o cadastro na NG informando username e password.
+
+- Página para realizar o login informando username e password.
+
+- Com o usuário logado, a página principal deve apresentar:
+
+  - balance atual do usuário;
+
+  - Seção voltada à realização de transferências para outros usuários NG a partir do username de quem sofrerá o cash-in;
+
+  - Tabela com os detalhes de todas as transações que o usuário participou;
+
+  - Mecanismo para filtrar a tabela por data de transação e/ou transações do tipo cash-in/cash-out;
+
+  - Botão para realizar o log-out.
+</details>
+
+<br>
+
+<details>
+
+<summary>Backend</summary>
+
+- Qualquer pessoa deverá poder fazer parte da NG. Para isso, basta realizar o cadastro informando username e password.
+
+- Deve-se garantir que cada username seja único e composto por, pelo menos, 3 caracteres.
+
+- Deve-se garantir que a password seja composta por pelo menos 8 caracteres, um número e uma letra maiúscula. Lembre-se que ela deverá ser hashada ao ser armazenada no banco.
+
+- Durante o processo de cadastro de um novo usuário, sua respectiva conta deverá ser criada automaticamente na tabela Accounts com um balance de R$ 100,00. É importante ressaltar que caso ocorra algum problema e o usuário não seja criado, a tabela Accounts não deverá ser afetada.
+
+- Todo usuário deverá conseguir logar na aplicação informando username e password. Caso o login seja bem-sucedido, um token JWT (com 24h de validade) deverá ser fornecido.
+
+- Todo usuário logado (ou seja, que apresente um token válido) deverá ser capaz de visualizar seu próprio balance atual. Um usuário A não pode visualizar o balance de um usuário B, por exemplo.
+
+- Todo usuário logado (ou seja, que apresente um token válido) deverá ser capaz de realizar um cash-out informando o username do usuário que sofrerá o cash-in), caso apresente balance suficiente para isso. Atente-se ao fato de que um usuário não deverá ter a possibilidade de realizar uma transferência para si mesmo.
+
+- Toda nova transação bem-sucedida deverá ser registrada na tabela Transactions. Em casos de falhas transacionais, a tabela Transactions não deverá ser afetada.
+
+- Todo usuário logado (ou seja, que apresente um token válido) deverá ser capaz de visualizar as transações financeiras (cash-out e cash-in) que participou. Caso o usuário não tenha participado de uma determinada transação, ele nunca poderá ter acesso à ela.
+
+- Todo usuário logado (ou seja, que apresente um token válido) deverá ser capaz de filtrar as transações financeiras que participou por:
+
+  - Data de realização da transação e/ou
+
+        - Transações de cash-out;
+
+        - Transações de cash-in.
+
+</details>
+
+<br>
+
+## ⚙️ Arquitetura
+
+<div align="center">
+  <img src="./docs/assets/digram.png" width="500" heigth="500">
+</div>
 
 ## 🛠️ Abrir e rodar o projeto
 
@@ -38,12 +106,6 @@ Na variável de ambiente `JWT_SECRET` coloque a palavra secreta que será usada 
 Depois entre na pasta server do backend e execute `npm install` para instalar as dependências e `npm run dev` para iniciar o projeto.
 
 O servidor ficará disponível no endereço <a href="http://localhost:3333/">http://localhost:3333/</a>.
-
-## ⚙️ Arquitetura
-
-<div align="center">
-  <img src="./docs/assets/digram.png" width="500" heigth="500">
-</div>
 
 ## 📚 Mais informações
 
