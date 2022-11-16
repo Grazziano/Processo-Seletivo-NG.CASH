@@ -3,6 +3,7 @@ import { CashOutTransactionController } from './controllers/transaction/CashOutT
 import { AuthUserController } from './controllers/user/AuthUserController';
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { DetailUserController } from './controllers/user/DetailUserController';
+import { TransactionsUserController } from './controllers/user/TransactionsUserController';
 import { isAuthenticated } from './middlewares/isAuthenticated';
 import { userValidation } from './middlewares/userValidation';
 
@@ -12,5 +13,6 @@ router.post('/users', userValidation, new CreateUserController().handle);
 router.post('/session', new AuthUserController().handle);
 router.get('/me', isAuthenticated, new DetailUserController().handle);
 router.post('/cash-out', isAuthenticated, new CashOutTransactionController().handle);
+router.get('/transactions', isAuthenticated, new TransactionsUserController().handle);
 
 export { router };
