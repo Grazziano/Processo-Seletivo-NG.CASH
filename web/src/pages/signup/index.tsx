@@ -9,25 +9,25 @@ export default function SignUp() {
     <>
       <Head>
         <title>Faça seu cadastro!</title>
-
-        <div className={styles.containerCenter}>
-          <h1>Crie sua conta</h1>
-
-          <div className={styles.login}>
-            <form>
-              <Input type="text" placeholder="Digite o email" />
-              <Input type="password" placeholder="Digite a senha" />
-              <Button type="submit" loading={false}>
-                Cadastrar
-              </Button>
-            </form>
-
-            <Link href="/" className={styles.text}>
-              Já possui uma conta? Faça login
-            </Link>
-          </div>
-        </div>
       </Head>
+
+      <div className={styles.containerCenter}>
+        <h1>Crie sua conta</h1>
+
+        <div className={styles.login}>
+          <form>
+            <Input type="text" placeholder="Digite o email" />
+            <Input type="password" placeholder="Digite a senha" />
+            <Button type="submit" loading={false}>
+              Cadastrar
+            </Button>
+          </form>
+
+          <Link href="/" className={styles.text}>
+            Já possui uma conta? Faça login
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
