@@ -24,15 +24,17 @@ type AuthProviderProps = {
 export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [username, setUsername] = useState<UserProps>();
-  const isAuthenticated = !!username;
+  const [user, setUser] = useState<UserProps>({
+    id: '',
+    username: '',
+    password: '',
+  });
+  const isAuthenticated = user ? true : false;
 
-  async function signIn() {
-    alert('clicou no login');
-  }
+  async function signIn({ username, password }: SignInProps) {}
 
   return (
-    <AuthContext.Provider value={{ username, isAuthenticated, signIn }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
       {children}
     </AuthContext.Provider>
   );
