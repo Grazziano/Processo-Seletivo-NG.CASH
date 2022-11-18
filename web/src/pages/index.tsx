@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { FormEvent, useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 import styles from '../../styles/Home.module.scss';
 import Button from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -17,8 +18,9 @@ export default function Home() {
     event.preventDefault();
 
     if (!username || !password) {
-      // TODO trocar para toastfy
-      alert('Preencha os dados');
+      toast.warning('Preencha todos os dados!', {
+        theme: 'colored',
+      });
       return;
     }
 
