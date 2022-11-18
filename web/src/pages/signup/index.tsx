@@ -1,14 +1,17 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import styles from '../../../styles/Home.module.scss';
 import Button from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
+import { AuthContext } from '../../context/AuthContext';
 
 export default function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const { signUp } = useContext(AuthContext);
 
   async function handleSignUp(event: FormEvent) {
     event.preventDefault();
@@ -20,6 +23,15 @@ export default function SignUp() {
     }
 
     setLoading(true);
+
+    let data = {
+      username,
+      password,
+    };
+
+    await signUp(data);
+
+    setLoading(false);
   }
 
   return (
