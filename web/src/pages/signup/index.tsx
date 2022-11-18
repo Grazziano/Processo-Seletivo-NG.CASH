@@ -8,7 +8,7 @@ export default function SignUp() {
   return (
     <>
       <Head>
-        <title>Faça seu cadastro!</title>
+        <title>Cadastro</title>
       </Head>
 
       <div className={styles.containerCenter}>
@@ -16,7 +16,7 @@ export default function SignUp() {
 
         <div className={styles.login}>
           <form>
-            <Input type="text" placeholder="Digite o email" />
+            <Input type="text" placeholder="Digite o usuário" />
             <Input type="password" placeholder="Digite a senha" />
             <Button type="submit" loading={false}>
               Cadastrar

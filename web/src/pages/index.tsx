@@ -16,18 +16,28 @@ export default function Home() {
   async function handleLogin(event: FormEvent) {
     event.preventDefault();
 
+    if (!username || !password) {
+      // TODO trocar para toastfy
+      alert('Preencha os dados');
+      return;
+    }
+
+    setLoading(true);
+
     let data = {
       username,
       password,
     };
 
     await signIn(data);
+
+    setLoading(false);
   }
 
   return (
     <>
       <Head>
-        <title>Carteira Digital| Login</title>
+        <title>Login</title>
       </Head>
       <div className={styles.containerCenter}>
         <h1>Carteira Digital</h1>
@@ -46,7 +56,7 @@ export default function Home() {
               value={password}
               onChange={({ target }) => setPassword(target.value)}
             />
-            <Button type="submit" loading={false}>
+            <Button type="submit" loading={loading}>
               Acessar
             </Button>
           </form>
