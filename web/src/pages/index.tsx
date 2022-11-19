@@ -6,6 +6,7 @@ import styles from '../../styles/Home.module.scss';
 import Button from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { AuthContext } from '../context/AuthContext';
+import { canSSRGuest } from '../utils/canSSRGuest';
 
 export default function Home() {
   const { signIn } = useContext(AuthContext);
@@ -42,7 +43,7 @@ export default function Home() {
         <title>Login</title>
       </Head>
       <div className={styles.containerCenter}>
-        <h1>Carteira Digital</h1>
+        <h1>Login</h1>
 
         <div className={styles.login}>
           <form onSubmit={handleLogin}>
@@ -71,3 +72,9 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+  return {
+    props: {},
+  };
+});
