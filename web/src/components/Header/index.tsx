@@ -18,7 +18,7 @@ export default function Header() {
         <p>{`Bem vindo, ${user?.username}!`}</p>
 
         <nav className={styles.menuNav}>
-          <Link href="">Transferências</Link>
+          <Link href="/transfers">Transferências</Link>
           <Link href="">Transações</Link>
 
           <button onClick={signOut}>
