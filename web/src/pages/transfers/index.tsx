@@ -7,12 +7,12 @@ import styles from './styles.module.scss';
 
 export default function Transaction() {
   const [name, setName] = useState('');
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState('');
 
   async function handleTransfer(event: FormEvent) {
     event.preventDefault();
 
-    if (!name || value <= 0) {
+    if (!name || !value) {
       toast.warning('É obrigatório informar usuário e valor', {
         theme: 'colored',
       });
@@ -24,7 +24,7 @@ export default function Transaction() {
 
       await apiClient.post('/cash-out', {
         username: name,
-        value,
+        value: parseFloat(value),
       });
 
       toast.success('Tranferência concluída com sucesso!', {
@@ -32,9 +32,8 @@ export default function Transaction() {
       });
 
       setName('');
-      setValue(0);
+      setValue('');
     } catch (error) {
-      // console.log(error);
       toast.error('Tranferência não pode ser concluída!', {
         theme: 'colored',
       });
@@ -67,7 +66,7 @@ export default function Transaction() {
               placeholder="Digite o valor a ser transferido"
               className={styles.input}
               value={value}
-              onChange={({ target }) => setValue(Number(target.value))}
+              onChange={({ target }) => setValue(target.value)}
             />
 
             <button type="submit" className={styles.button}>

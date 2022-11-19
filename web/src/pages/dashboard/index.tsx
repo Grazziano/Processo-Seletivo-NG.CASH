@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import { setupApiClient } from '../../services/api';
 import { canSSRAuth } from '../../utils/canSSRAuth';
+import formatCurrency from '../../utils/formatCurrency';
 import styles from './styles.module.scss';
 
 export default function Dashboard() {
@@ -42,7 +43,8 @@ export default function Dashboard() {
           <span className={styles.span}> Meu nome de usuário:</span> {username}
         </p>
         <p>
-          <span className={styles.span}> Meu saldo atual:</span> {balance}
+          <span className={styles.span}> Meu saldo atual:</span>{' '}
+          {formatCurrency(balance)}
         </p>
       </div>
     </>
