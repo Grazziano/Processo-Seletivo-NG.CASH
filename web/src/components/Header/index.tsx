@@ -19,7 +19,7 @@ export default function Header() {
 
         <nav className={styles.menuNav}>
           <Link href="/transfers">Transferências</Link>
-          <Link href="">Transações</Link>
+          <Link href="/transactions">Transações</Link>
 
           <button onClick={signOut}>
             <FiLogOut color="#fff" size={24} />

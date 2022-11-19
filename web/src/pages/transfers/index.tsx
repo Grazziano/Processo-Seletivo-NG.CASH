@@ -19,19 +19,26 @@ export default function Transaction() {
       return;
     }
 
-    const apiClient = setupApiClient();
+    try {
+      const apiClient = setupApiClient();
 
-    await apiClient.post('/cash-out', {
-      username: name,
-      value,
-    });
+      await apiClient.post('/cash-out', {
+        username: name,
+        value,
+      });
 
-    toast.success('Tranferência concluída com sucesso!', {
-      theme: 'colored',
-    });
+      toast.success('Tranferência concluída com sucesso!', {
+        theme: 'colored',
+      });
 
-    setName('');
-    setValue(0);
+      setName('');
+      setValue(0);
+    } catch (error) {
+      // console.log(error);
+      toast.error('Tranferência não pode ser concluída!', {
+        theme: 'colored',
+      });
+    }
   }
 
   return (
