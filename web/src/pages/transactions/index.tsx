@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import { setupApiClient } from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
+import formatDate from '../../utils/formatDate';
 import styles from './styles.module.scss';
 
 interface IData {
@@ -47,7 +48,7 @@ export default function Transactions() {
       <td>{formatCurrency(data.value)}</td>
       <td>{data.debitedAccountId}</td>
       <td>{data.creditedAccountId}</td>
-      <td>{data.createdAt}</td>
+      <td>{formatDate(data.createdAt)}</td>
     </tr>
   ));
 
@@ -57,7 +58,7 @@ export default function Transactions() {
       <td>{formatCurrency(data.value)}</td>
       <td>{data.debitedAccountId}</td>
       <td>{data.creditedAccountId}</td>
-      <td>{data.createdAt}</td>
+      <td>{formatDate(data.createdAt)}</td>
     </tr>
   ));
 
