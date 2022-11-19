@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import { setupApiClient } from '../../services/api';
+import formatCurrency from '../../utils/formatCurrency';
 import styles from './styles.module.scss';
 
 interface IData {
@@ -43,7 +44,7 @@ export default function Transactions() {
   const creditedTransactions = transactions?.credited.map((data) => (
     <tr key={data.id} className={styles.credited}>
       <td>{data.id}</td>
-      <td>{data.value}</td>
+      <td>{formatCurrency(data.value)}</td>
       <td>{data.debitedAccountId}</td>
       <td>{data.creditedAccountId}</td>
       <td>{data.createdAt}</td>
@@ -53,7 +54,7 @@ export default function Transactions() {
   const debitedTransactions = transactions?.debited.map((data) => (
     <tr key={data.id} className={styles.debited}>
       <td>{data.id}</td>
-      <td>{data.value}</td>
+      <td>{formatCurrency(data.value)}</td>
       <td>{data.debitedAccountId}</td>
       <td>{data.creditedAccountId}</td>
       <td>{data.createdAt}</td>
