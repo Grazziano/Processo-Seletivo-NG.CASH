@@ -1,0 +1,54 @@
+.container {
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+
+  h1 {
+    color: var(--white);
+  }
+}
+
+.containerButtons {
+  margin: 1.5rem;
+
+  button {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 0;
+    margin: 5px;
+  }
+}
+
+.container table {
+  border-collapse: 1px solid var(--gray-100);
+  width: 100%;
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: var(--dark-900);
+    color: white;
+    padding: 1.5rem;
+  }
+}
+
+.debited {
+  background-color: var(--red-900);
+}
+
+.credited {
+  background-color: var(--green-900);
+}
+
+.notAllowed {
+  cursor: not-allowed;
+}

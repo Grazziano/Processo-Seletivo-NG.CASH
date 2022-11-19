@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import { setupApiClient } from '../../services/api';
+import styles from './styles.module.scss';
 
 interface IData {
   createdAt: string;
@@ -18,6 +19,8 @@ interface ITransactionsData {
 
 export default function Transactions() {
   const [transactions, setTransactions] = useState<ITransactionsData>();
+  const [credited, setCredited] = useState<boolean>(true);
+  const [debited, setDebited] = useState<boolean>(false);
 
   async function loadTransactions() {
     const apiClient = setupApiClient();
@@ -26,6 +29,36 @@ export default function Transactions() {
 
     setTransactions(response.data);
   }
+
+  function handleTypeTransaction(type: string) {
+    if (type === 'credited') {
+      setCredited(true);
+      setDebited(false);
+    } else if (type === 'debited') {
+      setCredited(false);
+      setDebited(true);
+    }
+  }
+
+  const creditedTransactions = transactions?.credited.map((data) => (
+    <tr key={data.id} className={styles.credited}>
+      <td>{data.id}</td>
+      <td>{data.value}</td>
+      <td>{data.debitedAccountId}</td>
+      <td>{data.creditedAccountId}</td>
+      <td>{data.createdAt}</td>
+    </tr>
+  ));
+
+  const debitedTransactions = transactions?.debited.map((data) => (
+    <tr key={data.id} className={styles.debited}>
+      <td>{data.id}</td>
+      <td>{data.value}</td>
+      <td>{data.debitedAccountId}</td>
+      <td>{data.creditedAccountId}</td>
+      <td>{data.createdAt}</td>
+    </tr>
+  ));
 
   useEffect(() => {
     loadTransactions();
@@ -38,16 +71,43 @@ export default function Transactions() {
       </Head>
       <Header />
 
-      <div>
+      <div className={styles.container}>
         <h1>Minhas transações</h1>
 
-        {transactions?.credited.map((data) => (
-          <li key={data.id}>{data.id}</li>
-        ))}
+        <div className={styles.containerButtons}>
+          <button
+            className={`${styles.credited} ${credited && styles.notAllowed}`}
+            onClick={() => handleTypeTransaction('credited')}
+            disabled={credited}
+          >
+            Creditado
+          </button>
+          <button
+            className={`${styles.debited} ${debited && styles.notAllowed}`}
+            onClick={() => handleTypeTransaction('debited')}
+            disabled={debited}
+          >
+            Debitado
+          </button>
+        </div>
 
-        {transactions?.debited.map((data) => (
-          <li key={data.id}>{data.id}</li>
-        ))}
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Valor</th>
+              <th>Conta debitada</th>
+              <th>Conta creditada</th>
+              <th>Data</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {credited && creditedTransactions}
+
+            {debited && debitedTransactions}
+          </tbody>
+        </table>
       </div>
     </>
   );
