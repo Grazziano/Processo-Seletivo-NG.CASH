@@ -2,11 +2,15 @@
   <h1>Carteira Digital</h1>
 </div>
 
+## 📱 Layout
+
 <div align="center">
-  <img src="./docs/assets/image01.png" width="300" heigth="300">
-  <img src="./docs/assets/image02.png" width="300" heigth="300">
-  <img src="./docs/assets/image03.png" width="300" heigth="300">
-  <img src="./docs/assets/image04.png" width="300" heigth="300">
+  <img src="./docs/assets/login.png" width="320" heigth="320">
+  <img src="./docs/assets/create-account.png" width="320" heigth="320">
+  <img src="./docs/assets/cash-in.png" width="320" heigth="320">
+  <img src="./docs/assets/cash-out.png" width="320" heigth="320">
+  <img src="./docs/assets/transfers.png" width="320" heigth="320">
+  <img src="./docs/assets/dashboard.png" width="320" heigth="320">
 </div>
 
 Esta aplicação web fullstack, possibilita que usuários consigam realizar transferências internas entre si.
