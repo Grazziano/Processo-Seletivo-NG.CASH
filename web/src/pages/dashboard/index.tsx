@@ -36,16 +36,20 @@ export default function Dashboard() {
       <div className={styles.container}>
         <h2>Dashboard</h2>
 
-        <p>
-          <span className={styles.span}> Conta:</span> {accountId}
-        </p>
-        <p>
-          <span className={styles.span}> Meu nome de usuário:</span> {username}
-        </p>
-        <p>
-          <span className={styles.span}> Meu saldo atual:</span>{' '}
-          {formatCurrency(balance)}
-        </p>
+        <ul className={styles.list}>
+          <li className={styles.listItem}>
+            <span className={styles.span}> Conta:</span> {accountId}
+          </li>
+          <li className={styles.listItem}>
+            <span className={styles.span}> Meu nome de usuário:</span>{' '}
+            {username}{' '}
+          </li>
+          <li className={styles.listItem}>
+            {' '}
+            <span className={styles.span}> Meu saldo atual:</span>{' '}
+            {formatCurrency(balance)}{' '}
+          </li>
+        </ul>
       </div>
     </>
   );

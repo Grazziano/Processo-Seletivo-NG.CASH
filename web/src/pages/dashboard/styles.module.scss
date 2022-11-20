@@ -14,10 +14,16 @@
   font-size: 2rem;
 }
 
-.container p {
+.list {
+  background-color: var(--dark-900);
+  border: 1px solid var(--gray-100);
+  border-radius: 0.5rem;
+  padding: 3rem;
+  font-size: large;
   color: var(--white);
-  margin-bottom: 0.8rem;
-  font-size: larger;
+  list-style: none;
+  line-height: 3rem;
+  font-weight: bold;
 }
 
 .span {
