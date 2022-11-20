@@ -2,6 +2,13 @@
   <h1>Carteira Digital</h1>
 </div>
 
+<div align="center">
+  <img src="./docs/assets/image01.png" width="300" heigth="300">
+  <img src="./docs/assets/image02.png" width="300" heigth="300">
+  <img src="./docs/assets/image03.png" width="300" heigth="300">
+  <img src="./docs/assets/image04.png" width="300" heigth="300">
+</div>
+
 Esta aplicação web fullstack, possibilita que usuários consigam realizar transferências internas entre si.
 
 ## ✔️ Técnicas e tecnologias utilizadas
@@ -12,7 +19,7 @@ Lista de tecnologias que foram usadas nesse projeto:
 
 ### Frontend
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
@@ -45,7 +52,7 @@ Lista de tecnologias que foram usadas nesse projeto:
   - Mecanismo para filtrar a tabela por data de transação e/ou transações do tipo cash-in/cash-out;
 
   - Botão para realizar o log-out.
-</details>
+  </details>
 
 <br>
 
@@ -93,7 +100,7 @@ Lista de tecnologias que foram usadas nesse projeto:
 
 ### Frontend
 
-Para abrir e rodar o projeto, entre na pasta web do frontend execute `npm install` para instalar as dependências e `npm start` para iniciar o projeto.
+Para abrir e rodar o projeto, entre na pasta web do frontend execute `npm install` para instalar as dependências e `npm run dev` para iniciar o projeto.
 
 Depois, acesse <a href="http://localhost:3000/">http://localhost:3000/</a> no seu navegador.
 

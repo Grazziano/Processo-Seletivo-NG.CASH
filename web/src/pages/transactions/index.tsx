@@ -82,14 +82,14 @@ export default function Transactions() {
             onClick={() => handleTypeTransaction('credited')}
             disabled={credited}
           >
-            Creditado
+            Entradas
           </button>
           <button
             className={`${styles.debited} ${debited && styles.notAllowed}`}
             onClick={() => handleTypeTransaction('debited')}
             disabled={debited}
           >
-            Debitado
+            Saídas
           </button>
         </div>
 
