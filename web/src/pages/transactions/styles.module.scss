@@ -28,6 +28,11 @@
   border-collapse: 1px solid var(--gray-100);
   width: 100%;
 
+  caption {
+    caption-side: top;
+    color: var(--white);
+  }
+
   th,
   td {
     text-align: left;

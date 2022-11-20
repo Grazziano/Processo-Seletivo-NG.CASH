@@ -94,6 +94,7 @@ export default function Transactions() {
         </div>
 
         <table>
+          <caption>{credited ? 'Entradas' : 'Saídas'}</caption>
           <thead>
             <tr>
               <th>ID</th>
