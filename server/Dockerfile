@@ -1,13 +1,15 @@
-FROM node:alpine
+FROM node:16
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json .
 
 RUN npm install
+
+RUN npm i -g prisma
 
 COPY . .
 
 EXPOSE 3333
 
-CMD ["npm", "run", "migrate"]
+CMD ["npm", "run", "dev"]
